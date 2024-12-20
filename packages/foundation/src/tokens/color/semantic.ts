@@ -7,7 +7,7 @@ import {
   Teal,
   White,
   Yellow,
-} from "@tokens/color/palletes";
+} from "@/tokens/color/palletes";
 
 type CoreColor = "Teal" | "Blue" | "BlueGray" | "White";
 export const CoreColor: Record<CoreColor, string> = {
