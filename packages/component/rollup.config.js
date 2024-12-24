@@ -18,12 +18,10 @@ export default {
       file: packageJson.main,
       format: "cjs",
       exports: 'named',
-      sourcemap: false,
     },
     {
       file: packageJson.module,
       format: "esm",
-      sourcemap: false,
     },
   ],
   plugins: [
@@ -43,6 +41,9 @@ export default {
     }),
     commonjs(),
     postcss({
+      modules: true,
+      extract: true,
+      extract: path.resolve('dist/index.css'),
       extensions: ['.css', '.scss'],
     }),
     swc({
