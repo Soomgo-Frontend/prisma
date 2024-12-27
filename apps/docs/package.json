@@ -11,8 +11,9 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@repo/component": "workspace:*",
+    "@repo/foundation": "workspace:*",
     "@repo/ui": "workspace:*",
-    "@repo/compoent": "file:../../packages/component",
     "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

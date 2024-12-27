@@ -5,6 +5,17 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.esm.js"
+    },
+    "./global.css": {
+      "import": "./dist/semantic-colors.css",
+      "require": "./dist/semantic-colors.css"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist & rollup -c --bundleConfigAsCjs && tsc --emitDeclarationOnly",
