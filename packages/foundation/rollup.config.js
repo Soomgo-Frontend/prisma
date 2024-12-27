@@ -6,6 +6,8 @@ import swc from "@rollup/plugin-swc";
 import alias from "@rollup/plugin-alias";
 import packageJson from "./package.json";
 
+const __dirname = import.meta.dirname;
+
 const customResolver = resolve({
   extensions: [".mjs", ".js", ".jsx", ".json", ".ts", ".tsx"],
 });

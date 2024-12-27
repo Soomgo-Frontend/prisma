@@ -55,4 +55,5 @@ const cssVariables = flattenNestedRecords(semanticCategory);
 const cssContent = `:root {\n${cssVariables}\n}\n`;
 
 writeFileSync("dist/semantic-colors.css", cssContent);
+//eslint-disable-next-line no-undef
 console.log("CSS variables generated successfully!");

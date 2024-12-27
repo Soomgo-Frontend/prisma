@@ -7,6 +7,8 @@ import alias from "@rollup/plugin-alias";
 import postcss from 'rollup-plugin-postcss';
 import packageJson from "./package.json";
 
+const __dirname = import.meta.dirname;
+
 const customResolver = resolve({
   extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
 });
@@ -41,7 +43,6 @@ export default {
     commonjs(),
     postcss({
       modules: true,
-      extract: true,
       extract: path.resolve('dist/index.css'),
       extensions: ['.css', '.scss'],
     }),
