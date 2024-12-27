@@ -1,8 +1,8 @@
 // generate-css-vars.ts
 import { writeFileSync } from 'fs';
-import { BackgroundColor } from '@/tokens/color/semantic';
+import { BackgroundColor } from '../color/semantic';
 
-function toCssVarName(key: string): string {
+function toCssVarName(key) {
   return `--background-color-${key.toLowerCase()}`;
 }
 

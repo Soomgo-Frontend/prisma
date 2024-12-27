@@ -27,7 +27,6 @@ export default {
   plugins: [
     alias({
       entries: [
-        
         {
           find: "@",
           replacement: path.resolve(__dirname, "src/"),

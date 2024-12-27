@@ -8,7 +8,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist & rollup -c --bundleConfigAsCjs && tsc --emitDeclarationOnly",
-    "build:types": "tsc --emitDeclarationOnly"
+    "build:types": "tsc --emitDeclarationOnly",
+    "generate-css-vars": "node dist/tokens/tools/generate-css-vars.cjs.js"
   },
   "author": "",
   "license": "ISC",

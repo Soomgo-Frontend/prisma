@@ -7,41 +7,65 @@ import alias from "@rollup/plugin-alias";
 import packageJson from "./package.json";
 
 const customResolver = resolve({
-  extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
+  extensions: [".mjs", ".js", ".jsx", ".json", ".ts", ".tsx"],
 });
 
-export default {
-  input: "src/index.ts",
-  output: [
-    {
-      file: packageJson.main,
+export default [
+  {
+    input: "src/tokens/tools/generate-css-vars.js",
+    output: {
+      file: 'dist/tokens/tools/generate-css-vars.cjs.js',
       format: "cjs",
-      sourcemap: true,
     },
-    {
-      file: packageJson.module,
-      format: "esm",
-      sourcemap: true,
-    },
-  ],
-  plugins: [
-    alias({
-      entries: [
-        
-        {
-          find: "@",
-          replacement: path.resolve(__dirname, "src/"),
-        },
-      ],
-      customResolver,
-    }),
-    peerDepsExternal(),
-    resolve({
-      extensions: [".js", ".ts", ".tsx"],
-    }),
-    commonjs(),
-    swc({
-      exclude: ["node_modules/**"],
-    }),
-  ],
-};
+    plugins: [
+      alias({
+        entries: [
+          {
+            find: "@",
+            replacement: path.resolve(__dirname, "src/"),
+          },
+        ],
+        customResolver,
+      }),
+      resolve({
+        extensions: [".js", ".ts", ".tsx"],
+      }),
+      commonjs(),
+      swc({
+        exclude: ["node_modules/**"],
+      }),
+    ],
+  },
+  {
+    input: "src/index.ts",
+    output: [
+      {
+        file: packageJson.main,
+        format: "cjs",
+      },
+      {
+        file: packageJson.module,
+        format: "esm",
+      },
+    ],
+    plugins: [
+      alias({
+        entries: [
+          {
+            find: "@",
+            replacement: path.resolve(__dirname, "src/"),
+          },
+        ],
+        customResolver,
+      }),
+      peerDepsExternal(),
+      resolve({
+        extensions: [".js", ".ts", ".tsx"],
+      }),
+      commonjs(),
+      swc({
+        exclude: ["node_modules/**"],
+      }),
+    ],
+  },
+];

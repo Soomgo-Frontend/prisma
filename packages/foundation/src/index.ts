@@ -4,7 +4,7 @@ export {
   BackgroundColor,
   BorderColor,
   StateColor,
-} from "@/tokens/color/semantic";
+} from "./tokens/color/semantic";
 export {
   Black,
   Blue,
@@ -13,4 +13,4 @@ export {
   Orange,
   Purple,
   White,
-} from "@/tokens/color/palletes";
+} from "./tokens/color/palletes";
