@@ -20,9 +20,12 @@ importers:
 
   apps/docs:
     dependencies:
-      '@repo/compoent':
-        specifier: file:../../packages/component
+      '@repo/component':
+        specifier: workspace:*
         version: link:../../packages/component
+      '@repo/foundation':
+        specifier: workspace:*
+        version: link:../../packages/foundation
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -90,6 +93,10 @@ importers:
         version: 5.5.4
 
   packages/component:
+    dependencies:
+      '@repo/foundation':
+        specifier: workspace:^
+        version: link:../foundation
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*

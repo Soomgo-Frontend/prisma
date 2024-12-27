@@ -8,6 +8,9 @@
     justify-content: center;
     overflow-x: hidden;
     padding: 12px 16px;
-    background-color: red;
+    background: var(--background-red_enabled);
   }
-  
+
+  .buttonBase:hover {
+    background: var(--background-red_hovered);
+  }

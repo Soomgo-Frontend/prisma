@@ -1,23 +1,9 @@
-import Image, { type ImageProps } from "next/image";
+import Image from "next/image";
 import styles from "./page.module.css";
-import { Button, RedButton } from "@repo/compoent";
-import "@repo/compoent/style.css";
-
-type Props = Omit<ImageProps, "src"> & {
-  srcLight: string;
-  srcDark: string;
-};
-
-const ThemeImage = (props: Props) => {
-  const { srcLight, srcDark, ...rest } = props;
-
-  return (
-    <>
-      <Image {...rest} src={srcLight} className="imgLight" />
-      <Image {...rest} src={srcDark} className="imgDark" />
-    </>
-  );
-};
+import { Button, RedButton } from "@repo/component";
+import "@repo/component/style.css";
+import "@repo/foundation/global.css";
+import { TextColor } from "@repo/foundation";
 
 export default function Home() {
   return (
@@ -25,6 +11,7 @@ export default function Home() {
       <main className={styles.main}>
        <Button />
        <RedButton />
+       <div style={{ color: TextColor.teal }}>Hello</div>
       </main>
       <footer className={styles.footer}>
         <a
