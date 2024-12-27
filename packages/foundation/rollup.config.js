@@ -16,7 +16,7 @@ export default [
   {
     input: "src/tokens/tools/generate-css-vars.js",
     output: {
-      file: 'dist/tokens/tools/generate-css-vars.cjs.js',
+      file: 'dist/tokens/tools/generate-css-vars.cjs',
       format: "cjs",
     },
     plugins: [

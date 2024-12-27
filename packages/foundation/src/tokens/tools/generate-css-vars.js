@@ -1,5 +1,4 @@
-// generate-css-vars.ts
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync } from "fs";
 import {
   CoreColor,
   TextColor,
@@ -8,6 +7,7 @@ import {
   StateColor,
   BackgroundColor,
 } from "../color/semantic";
+import { GradientColor } from "../color/gradient";
 
 const semanticCategory = {
   background: BackgroundColor,
@@ -16,6 +16,10 @@ const semanticCategory = {
   overlay: OverlayColor,
   border: BorderColor,
   state: StateColor,
+};
+
+const gradientCategory = {
+gradient: GradientColor
 };
 
 /**
@@ -50,10 +54,26 @@ function flattenNestedRecords(obj) {
   return results.join('\n');
 }
 
-const cssVariables = flattenNestedRecords(semanticCategory);
+const semanticCssVariables = flattenNestedRecords(semanticCategory);
 
-const cssContent = `:root {\n${cssVariables}\n}\n`;
+const semanticCssContent = `:root {\n${semanticCssVariables}\n}\n`;
 
-writeFileSync("dist/semantic-colors.css", cssContent);
+writeFileSync("dist/semantic-colors.css", semanticCssContent);
+
+
+const gradientCssVariables = flattenNestedRecords(gradientCategory);
+
+const gradientCssContent = `:root {\n${gradientCssVariables}\n}\n`;
+
+writeFileSync("dist/gradient-colors.css", gradientCssContent);
+
+// 3. 두 파일을 읽어와서 하나로 합친 global.css 생성
+const semanticCss = readFileSync("dist/semantic-colors.css", "utf8");
+const gradientCss = readFileSync("dist/gradient-colors.css", "utf8");
+
+// 두 파일의 내용을 이어붙여 global.css 생성
+const globalCss = `/**\n * prisma semantic token\n */\n${semanticCss}\n\n/**\n * prisma gradient token\n */\n${gradientCss}`;
+writeFileSync("dist/global.css", globalCss);
+
 //eslint-disable-next-line no-undef
 console.log("CSS variables generated successfully!");

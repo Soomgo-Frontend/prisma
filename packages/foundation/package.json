@@ -13,8 +13,8 @@
       "import": "./dist/index.esm.js"
     },
     "./global.css": {
-      "import": "./dist/semantic-colors.css",
-      "require": "./dist/semantic-colors.css"
+      "import": "./dist/global.css",
+      "require": "./dist/global.css"
     }
   },
   "scripts": {
@@ -22,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist & rollup -c --bundleConfigAsCjs && tsc --emitDeclarationOnly",
     "build:types": "tsc --emitDeclarationOnly",
-    "generate-css-vars": "node dist/tokens/tools/generate-css-vars.cjs.js"
+    "postbuild": "node dist/tokens/tools/generate-css-vars.cjs"
   },
   "author": "",
   "license": "ISC",
