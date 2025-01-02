@@ -14,3 +14,8 @@ export {
   Purple,
   White,
 } from "./tokens/color/palletes";
+export {
+  FontSize,
+  LineHeight,
+  FontWeight
+} from "./tokens/typography/typography";
