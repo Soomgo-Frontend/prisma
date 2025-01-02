@@ -1,5 +1,5 @@
 {
-  "name": "turborepo-pnpm-tutorial",
+  "name": "prisma",
   "private": true,
   "scripts": {
     "build": "turbo build",
