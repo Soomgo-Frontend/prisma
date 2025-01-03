@@ -1,0 +1,13 @@
+name: PR Jira Badge
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  pr-jira-badge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Soomgo-Frontend/soomgo-frontend-actions/actions/pr-jira-badge@master
+        with:
+          color: 'blue'

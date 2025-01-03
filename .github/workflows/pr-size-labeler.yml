@@ -1,0 +1,11 @@
+name: PR Size Labeler
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  pr-size-labeler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Soomgo-Frontend/soomgo-frontend-actions/actions/pr-size-labeler@master
